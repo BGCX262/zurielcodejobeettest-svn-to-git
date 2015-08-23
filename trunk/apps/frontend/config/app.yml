@@ -1,0 +1,7 @@
+all:
+  #Cantidad máxima de días que pueden transcurrir antes de que un trabajo se tenga en cuenta como vencido
+  active_days:          30
+  #Cantidad máxima de trabajos por grupo para mostrar (Resumido)
+  max_jobs_on_homepage: 10
+  #Cantidad máxima de trabajos por grupo para mostrar (Completo, con paginador)
+  max_jobs_on_category: 20

@@ -1,0 +1,41 @@
+#Genera dinámicamente la colección para las 7 opciones ( ver con app:getroute )
+job:
+  class:   sfDoctrineRouteCollection
+  options: { model: JobeetJob }
+
+
+job_show_user:
+  url:   /job/:company_slug/:location_slug/:id/:position_slug
+  class: sfDoctrineRoute
+  options: { model: JobeetJob, type: object, method_for_query: retrieveActiveJob }
+  param:   { module: job, action: show }
+  requeriments:
+    id:  \d+
+ 
+category:
+  url:  /category/:slug
+  class: sfDoctrineRoute
+  options: { model: JobeetCategory, type: object }
+  param:   { module: category, action: show }
+
+category:
+  url:  /category/:slug
+  class: sfDoctrineRoute
+  options: { model: JobeetCategory, type: object }
+  param:   { module: category, action: show }
+ 
+#Establecemos por defecto como home, el módulo job
+homepage:
+  url:   /
+  param: { module: job, action: index }
+
+#========================================================
+# AHORA, TODAS LAS RUTAS PARA EL MÓDULO JOB SE ENCUENTRAN
+# DEFINIDAS POR LA CLASE sfDoctrineRouteCollection
+#========================================================
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+
+#default:
+#  url:   /:module/:action/*
